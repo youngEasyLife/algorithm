@@ -49,6 +49,38 @@ public class Sort {
     }
 
     /**
+     * 冒泡排序
+     *
+     * @param in
+     */
+    public static void bubbleArray(Integer[] in) {
+        int num = 0;
+        int upNum = 0;
+        for (int i = 0; i < in.length; i++) {
+            boolean change = true;
+            for (int y = in.length - 1; y > i; y--) {
+                num++;
+                if (in[y] < in[y - 1]) {
+                    swap(in, y - 1, y);
+                    upNum++;
+                    change = false;
+                }
+            }
+            if (change) {
+                break;
+            }
+        }
+        for (int i = 0; i < in.length; i++) {
+            System.out.println(in[i]);
+        }
+        System.out.println();
+        System.out.println("冒泡排序 执行次数-----》" + num);
+        System.out.println("冒泡排序 交换次数------>" + upNum);
+
+
+    }
+
+    /**
      * 选择排序
      *
      * @param in：数组
@@ -85,11 +117,11 @@ public class Sort {
         Integer in[] = {
                 8, 89, 5, 84, 3, 45, 12, 33, 77, 98, 456, 878, 654, 213, 897
         };
-        insertArray(in);
-        Integer num[] = {
+        bubbleArray(in);
+     /*   Integer num[] = {
                 8, 89, 5, 84, 3, 45, 12, 33, 77, 98, 456, 878, 654, 213, 897
         };
-        chooseArray(num);  //测试的代码段
+        chooseArray(num);  //测试的代码段*/
 
         long endTime = System.nanoTime(); //获取结束时间
 
